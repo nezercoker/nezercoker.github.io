@@ -2,154 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NezerMedia • Taiwo Coker</title>
-
-  <!-- Basic styling in one place -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #4f46e5;      /* indigo-600 */
-      --bg:     #f9fafb;      /* gray-50   */
-      --text:   #111827;      /* gray-900  */
+      --primary: #4f46e5;
+      --bg: #f8fafc;
+      --text: #111827;
+      --accent: #6366f1;
+      --card-bg: white;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      margin: 0; background: var(--bg); color: var(--text);
     }
     header {
+      background: linear-gradient(120deg, var(--primary), #6366f1);
+      padding: 4rem 1rem 5rem;
+      color: white;
       text-align: center;
-      padding: 7rem 1rem 5rem;
-      background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%);
-      color: #fff;
     }
-    header h1 { font-size: 3rem; font-weight: 800; margin-bottom: .5rem; }
-    header p  { font-size: 1.25rem; opacity: 0.9; }
+    header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+
     nav {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+      margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
     }
     nav a {
-      color: #fff; text-decoration: none; font-weight: 600;
-      border: 2px solid #fff; padding: .5rem 1rem; border-radius: 9999px;
-      transition: background .2s, color .2s;
+      color: white; border: 2px solid white; padding: 0.5rem 1rem;
+      border-radius: 9999px; text-decoration: none; font-weight: 600;
     }
-    nav a:hover { background: #fff; color: var(--accent); }
+    nav a:hover { background: white; color: var(--primary); }
+
     section {
-      max-width: 720px; margin: 0 auto; padding: 4rem 1rem;
+      max-width: 900px; margin: 3rem auto; padding: 0 1rem;
     }
-    h2 { font-size: 2rem; margin-bottom: 1rem; position: relative; }
-    h2::after {
-      content: ""; display: block; width: 3rem; height: .25rem;
-      background: var(--accent); margin-top: .5rem;
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
     }
-    ul { list-style: disc inside; margin-top: .5rem; }
+
     .card-grid {
-      display: grid; gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin-top: 1rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;
     }
     .card {
-      background: #fff; padding: 1.5rem; border-radius: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,.05);
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
+
+    iframe { width: 100%; min-height: 600px; border: none; border-radius: 1rem; }
+
+    .gallery img {
+      width: 100%; border-radius: 1rem; height: 200px; object-fit: cover;
+    }
+
+    form input[type="email"] {
+      width: 70%; padding: 0.75rem; border: 1px solid #ccc;
+      border-radius: 9999px; outline: none; margin-right: 0.5rem;
+    }
+    form button {
+      padding: 0.75rem 1rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+
     footer {
-      text-align: center; padding: 2rem 1rem; font-size: .875rem;
-      background: #e5e7eb;
+      text-align: center; padding: 2rem 1rem;
+      font-size: 0.875rem; background: #e5e7eb;
       color: #374151;
     }
+
     @media (prefers-color-scheme: dark) {
-      :root { --bg: #0f172a; --text: #f1f5f9; }
-      header { background: linear-gradient(135deg,#6366f1 0%,#4338ca 100%); }
-      nav a { border-color:#f1f5f9; }
-      nav a:hover { background:#f1f5f9; color:#4338ca; }
-      section, .card { background:#1e293b; color:#f1f5f9; }
-      footer { background:#1e293b; color:#94a3b8; }
+      :root {
+        --bg: #0f172a;
+        --text: #f8fafc;
+        --card-bg: #1e293b;
+      }
+      body { color: var(--text); background: var(--bg); }
+      nav a { border-color: #f1f5f9; }
+      nav a:hover { background: #f1f5f9; color: var(--primary); }
+      footer { background: #1e293b; color: #94a3b8; }
     }
   </style>
 </head>
 <body>
-  <!-- HERO -->
   <header>
     <h1>NezerMedia</h1>
-    <p>Hi, I’m <strong>Taiwo Coker</strong> — IT Infrastructure Engineer exploring DevOps &amp; Software Engineering.</p>
-
+    <p>Hi, I’m <strong>Taiwo Coker</strong> — IT Infrastructure Engineer with a growing passion for DevOps & Software Engineering</p>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#blog">Blog</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#resume">Resume</a>
     </nav>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I keep critical systems running for University Hospitals Dorset and help
-      teams adopt modern cloud practices. My passion is automating away
-      repetitive work and bridging the gap between infrastructure and software
-      delivery.
-    </p>
+    <p>I’m an Infrastructure & Cloud Engineer at UHD with hands-on experience in automating hybrid environments, writing PowerShell tools, and leading secure deployments of Microsoft 365 and Azure. Now branching into DevOps and software engineering.</p>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
-    <h2>Core Skills</h2>
+    <h2>Skills</h2>
     <ul>
-      <li>Windows &amp; Linux server administration (on-prem &amp; Azure)</li>
-      <li>Infrastructure-as-Code with PowerShell &amp; Terraform</li>
-      <li>CI/CD pipelines (GitHub Actions, Azure DevOps)</li>
-      <li>Containerisation with Docker &amp; Kubernetes (learning)</li>
-      <li>Scripting &amp; automation for M365, Intune, Sentinel</li>
+      <li>Azure AD, Intune, Exchange Online, Sentinel</li>
+      <li>PowerShell, Python, Terraform, GitHub Actions</li>
+      <li>Cisco switches, VLANs, VMware, Hyper-V</li>
+      <li>Power Apps, Power Automate, SharePoint</li>
     </ul>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
-    <h2>Highlighted Projects</h2>
+    <h2>Projects</h2>
     <div class="card-grid">
       <div class="card">
-        <h3>NHS Stock App</h3>
-        <p>Low-code Power Apps solution that tracks medical consumables across
-           two hospital sites, saving ~6 hours/week of manual reconciliation.</p>
+        <h3>NHS Stock Tracker App</h3>
+        <p>Developed a Power Apps tool to manage hospital stock levels. Saved ~6+ hours/week by automating paper-based processes.</p>
       </div>
       <div class="card">
-        <h3>Exchange Online Cleanup Tool</h3>
-        <p>GUI-driven PowerShell app that purges <em>Recoverable Items</em>
-           folders; reclaimed 200 GB+ storage from 500+ mailboxes.</p>
+        <h3>Exchange Online Cleanup GUI</h3>
+        <p>PowerShell GUI that deletes Recoverable Items in mailboxes. Recovered 200+ GB from 500 users.</p>
       </div>
       <div class="card">
         <h3>Hybrid Patch Automation</h3>
-        <p>Orchestrated WSUS + SCCM update workflow with approval gates, cutting
-           server patch window by 40 % while meeting NHS uptime SLAs.</p>
+        <p>Streamlined Windows patching across 100+ servers using WSUS, SCCM, and PowerShell with rollback support.</p>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <p>
-      📧 <a href="mailto:a.taiwo.coker@uhd.nhs.uk">a.taiwo.coker@uhd.nhs.uk</a><br>
-      💼 <a href="https://www.linkedin.com/in/taiwocoker/">LinkedIn / taiwocoker</a>
-    </p>
+  <section id="blog">
+    <h2>Blog</h2>
+    <iframe src="https://www.notion.so/Welcome-to-Notion-2265f97827708091a70bd43ace2db7d5?source=copy_link" loading="lazy"></iframe>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="card-grid gallery">
+      <img src="https://source.unsplash.com/featured/?tech,cloud" alt="Gallery Image 1">
+      <img src="https://source.unsplash.com/featured/?server,room" alt="Gallery Image 2">
+      <img src="https://source.unsplash.com/featured/?code,screen" alt="Gallery Image 3">
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <h2>Newsletter</h2>
+    <p>Get updates from NezerMedia (no spam, just insights):</p>
+    <form action="https://formspree.io/f/xqabozee" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <section id="resume">
+    <h2>Download My Resume</h2>
+    <p><a href="Taiwo-Coker-Resume.pdf" download>📄 Click here to download</a></p>
   </section>
 
   <footer>
-    © <span id="year"></span> NezerMedia — Built with ❤️ and GitHub Pages
+    © <span id="year"></span> NezerMedia • Built by Taiwo Coker
   </footer>
 
   <script>
-    // Update footer year automatically
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
 
