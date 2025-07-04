@@ -1,22 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Free Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NezerMedia • Taiwo Coker</title>
+
+  <!-- Basic styling in one place -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      text-align: center;
-      background-color: #f0f0f0;
+    :root {
+      --accent: #4f46e5;      /* indigo-600 */
+      --bg:     #f9fafb;      /* gray-50   */
+      --text:   #111827;      /* gray-900  */
     }
-    h1 {
-      color: #333;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 7rem 1rem 5rem;
+      background: linear-gradient(135deg, var(--accent) 0%, #6366f1 100%);
+      color: #fff;
+    }
+    header h1 { font-size: 3rem; font-weight: 800; margin-bottom: .5rem; }
+    header p  { font-size: 1.25rem; opacity: 0.9; }
+    nav {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-weight: 600;
+      border: 2px solid #fff; padding: .5rem 1rem; border-radius: 9999px;
+      transition: background .2s, color .2s;
+    }
+    nav a:hover { background: #fff; color: var(--accent); }
+    section {
+      max-width: 720px; margin: 0 auto; padding: 4rem 1rem;
+    }
+    h2 { font-size: 2rem; margin-bottom: 1rem; position: relative; }
+    h2::after {
+      content: ""; display: block; width: 3rem; height: .25rem;
+      background: var(--accent); margin-top: .5rem;
+    }
+    ul { list-style: disc inside; margin-top: .5rem; }
+    .card-grid {
+      display: grid; gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 1rem;
+    }
+    .card {
+      background: #fff; padding: 1.5rem; border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,.05);
+    }
+    footer {
+      text-align: center; padding: 2rem 1rem; font-size: .875rem;
+      background: #e5e7eb;
+      color: #374151;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0f172a; --text: #f1f5f9; }
+      header { background: linear-gradient(135deg,#6366f1 0%,#4338ca 100%); }
+      nav a { border-color:#f1f5f9; }
+      nav a:hover { background:#f1f5f9; color:#4338ca; }
+      section, .card { background:#1e293b; color:#f1f5f9; }
+      footer { background:#1e293b; color:#94a3b8; }
     }
   </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>Welcome to my free website hosted on GitHub Pages.</p>
+  <!-- HERO -->
+  <header>
+    <h1>NezerMedia</h1>
+    <p>Hi, I’m <strong>Taiwo Coker</strong> — IT Infrastructure Engineer exploring DevOps &amp; Software Engineering.</p>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I keep critical systems running for University Hospitals Dorset and help
+      teams adopt modern cloud practices. My passion is automating away
+      repetitive work and bridging the gap between infrastructure and software
+      delivery.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Core Skills</h2>
+    <ul>
+      <li>Windows &amp; Linux server administration (on-prem &amp; Azure)</li>
+      <li>Infrastructure-as-Code with PowerShell &amp; Terraform</li>
+      <li>CI/CD pipelines (GitHub Actions, Azure DevOps)</li>
+      <li>Containerisation with Docker &amp; Kubernetes (learning)</li>
+      <li>Scripting &amp; automation for M365, Intune, Sentinel</li>
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>NHS Stock App</h3>
+        <p>Low-code Power Apps solution that tracks medical consumables across
+           two hospital sites, saving ~6 hours/week of manual reconciliation.</p>
+      </div>
+      <div class="card">
+        <h3>Exchange Online Cleanup Tool</h3>
+        <p>GUI-driven PowerShell app that purges <em>Recoverable Items</em>
+           folders; reclaimed 200 GB+ storage from 500+ mailboxes.</p>
+      </div>
+      <div class="card">
+        <h3>Hybrid Patch Automation</h3>
+        <p>Orchestrated WSUS + SCCM update workflow with approval gates, cutting
+           server patch window by 40 % while meeting NHS uptime SLAs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p>
+      📧 <a href="mailto:a.taiwo.coker@uhd.nhs.uk">a.taiwo.coker@uhd.nhs.uk</a><br>
+      💼 <a href="https://www.linkedin.com/in/taiwocoker/">LinkedIn / taiwocoker</a>
+    </p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> NezerMedia — Built with ❤️ and GitHub Pages
+  </footer>
+
+  <script>
+    // Update footer year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
