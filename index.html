@@ -55,12 +55,6 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
-    iframe { width: 100%; min-height: 600px; border: none; border-radius: 1rem; }
-
-    .gallery img {
-      width: 100%; border-radius: 1rem; height: 200px; object-fit: cover;
-    }
-
     form input[type="email"] {
       width: 70%; padding: 0.75rem; border: 1px solid #ccc;
       border-radius: 9999px; outline: none; margin-right: 0.5rem;
@@ -73,6 +67,21 @@
       font-weight: 600;
       border-radius: 9999px;
       cursor: pointer;
+    }
+
+    .button-link {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .button-link:hover {
+      background: #3730a3;
     }
 
     footer {
@@ -103,7 +112,6 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#blog">Blog</a>
-      <a href="#gallery">Gallery</a>
       <a href="#newsletter">Newsletter</a>
       <a href="#resume">Resume</a>
     </nav>
@@ -144,22 +152,16 @@
 
   <section id="blog">
     <h2>Blog</h2>
-    <iframe src="https://www.notion.so/Welcome-to-Notion-2265f97827708091a70bd43ace2db7d5?source=copy_link" loading="lazy"></iframe>
-  </section>
-
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="card-grid gallery">
-      <img src="https://source.unsplash.com/featured/?tech,cloud" alt="Gallery Image 1">
-      <img src="https://source.unsplash.com/featured/?server,room" alt="Gallery Image 2">
-      <img src="https://source.unsplash.com/featured/?code,screen" alt="Gallery Image 3">
-    </div>
+    <p>You can now read my latest blog posts directly on Notion:</p>
+    <a class="button-link" href="https://www.notion.so/Welcome-to-Notion-2265f97827708091a70bd43ace2db7d5" target="_blank" rel="noopener noreferrer">
+      👉 Read Blog on Notion
+    </a>
   </section>
 
   <section id="newsletter">
     <h2>Newsletter</h2>
     <p>Get updates from NezerMedia (no spam, just insights):</p>
-    <form action="https://formspree.io/f/xqabozee" method="POST">
+    <form action="https://formspree.io/f/fake-example" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required>
       <button type="submit">Subscribe</button>
     </form>
@@ -167,7 +169,7 @@
 
   <section id="resume">
     <h2>Download My Resume</h2>
-    <p><a href="Taiwo-Coker-Resume.pdf" download>📄 Click here to download</a></p>
+    <p><a class="button-link" href="Taiwo-Coker-Resume.pdf" download>📄 Click here to download</a></p>
   </section>
 
   <footer>
@@ -179,5 +181,6 @@
   </script>
 </body>
 </html>
+
 
 
